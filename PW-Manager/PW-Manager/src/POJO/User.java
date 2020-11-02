@@ -3,7 +3,7 @@ package POJO;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
-public class User {
+public class User extends Person{
 	private int id;
 	private String username;
 	private String passwort;
