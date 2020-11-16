@@ -75,16 +75,16 @@ public class RegistryController {
     		user.setSecurityQuestion(cbSecurityQuestion.getValue()); // Weiteres Fenster mit Abfrage zur Sicherheitsfrage- /antwort für die Passwortzurücksetzung
     		user.setsecurityAnswer(tfSecurityAnswer.getText());
     		
-    		/* 
-    		 * GetDataFromDb
-    		 * Überprüfe, ob HWID schon vergeben -> Fehlerausgabe
-    		 * */
+    		// Überprüfen, ob Benutzername/ HWID schon vergeben
     		boolean existUsername = DbConnection.CheckExistUsername(tfUsername.getText());
-    		//boolean existHwid = DbConnection.CheckExistHWID(); // Check HWID
+    		boolean existHwid = DbConnection.CheckExistHWID(getHWID());
     		
     		if (existUsername == true ) {
     			lblSuccess.setText("Info: Benutzername schon vergeben.");
-    		} else {
+    		} else if (existHwid == false) {
+    			lblSuccess.setText("Info: Du hast bereits einen Account.");
+    		}
+    		else {
     			DbConnection.SetDataInDb(user);
     			lblSuccess.setText("Info: Account erfolgreich erstellt.");
     		}

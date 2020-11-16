@@ -1,13 +1,14 @@
 package POJO;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class User extends Person{
 	private int id;
 	private String username;
 	private String passwort;
-	private LocalDateTime creationDate;
+	private Timestamp creationDate;
 	private int hwid;
 	private String securityQuestion;
 	private String securityAnswer;
@@ -36,7 +37,7 @@ public class User extends Person{
 	/**
 	 * @return the creationDate
 	 */
-	public LocalDateTime getCreationDate() {
+	public Timestamp getCreationDate() {
 		return this.creationDate;
 	}
 	
@@ -103,8 +104,8 @@ public class User extends Person{
 	/**
 	 * set creationDate
 	 */
-	public void setCreationDate(LocalDateTime creationDate) {
-		this.creationDate = creationDate;
+	public void setCreationDate(Timestamp timestamp) {
+		this.creationDate = timestamp;
 	}
 	
 	/**

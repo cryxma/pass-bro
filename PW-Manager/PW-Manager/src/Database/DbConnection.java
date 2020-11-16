@@ -223,7 +223,7 @@ public class DbConnection {
 			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
 				
 			// SQL-Befehlsobjekt erstellen
-			statement = connection.prepareStatement("SELECT username FROM pwmanager.user WHERE username = ?");
+			statement = connection.prepareStatement("SELECT hwid FROM pwmanager.user WHERE hwid = ?");
 			statement.setString(1, hwid);
 			
 			resultSet = statement.executeQuery();
