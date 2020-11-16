@@ -77,7 +77,6 @@ public class RegistryController {
     		
     		/* 
     		 * GetDataFromDb
-    		 * Überprüfe, ob Username schon vergeben -> Fehlerausgabe
     		 * Überprüfe, ob HWID schon vergeben -> Fehlerausgabe
     		 * */
     		boolean existUsername = DbConnection.CheckExistUsername(tfUsername.getText());
