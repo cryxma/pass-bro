@@ -42,7 +42,7 @@ public class DbConnection {
 				user.setId(resultSet.getInt("id"));
 				user.setUsername(resultSet.getString("username"));
 				user.setPasswort(resultSet.getString("passwort"));
-				user.setCreationDate(resultSet.getDate("creationDate")); // Date erfordert, LocalDateTime wird gegeben -> Fehler | Cast/ Konvertierung
+				user.setCreationDate(resultSet.getTimestamp("creationDate")); // Date erfordert, LocalDateTime wird gegeben -> Fehler | Cast/ Konvertierung
 				user.setHWID(resultSet.getInt("hwid"));
 				user.setSecurityQuestion(resultSet.getString("securityQuestion"));
 				user.setsecurityAnswer(resultSet.getString("securityAnswer"));
@@ -88,14 +88,14 @@ public class DbConnection {
 			statement = connection.createStatement();
 					
 			// SQL Abfrage ausführen
-			String sqlCommand = "INSERT INTO pwmanager.User (id, username, passwort, creationDate, hwid, securityQuestion, securityAnswer) "
+			String sqlCommand = "INSERT INTO pwmanager.user (id, username, passwort, creationDate, hwid, securityQuestion, securityAnswer) "
 					+ "VALUES (NULL, '" + user.getUsername() + "', '" + user.getPasswort() + "', '" + user.getCreationDate() + "', "
 							+ "'" + user.getHwid() + "', '" + user.getSecurityQuestion() + "', '" + user.getSecurityAnswer() + "')";
-		
-			//int countRow = statement.executeUpdate(sqlCommand);
+			
+			int countRow = statement.executeUpdate(sqlCommand);
 		
 			// Ergebnismenge auswerten und speichern
-			//System.out.println("Anzahl eingefügter Tupel: " + countRow);
+			System.out.println("Anzahl eingefügter Tupel: " + countRow);
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 		}
@@ -113,5 +113,143 @@ public class DbConnection {
 				connection.close();
 			}
 		}
+	}
+	
+	public static boolean loginQuery(String username, String passwort) throws SQLException {
+		// Datenbankverbindungseinstellungen definieren
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
+		final String dbUsername = "root";
+		final String dbPassword = "";
+						
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+				
+		try {
+			// Datenbankverbindung aufbauen
+			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
+				
+			// SQL-Befehlsobjekt erstellen
+			statement = connection.prepareStatement("SELECT username, passwort FROM pwmanager.user WHERE username = ? and passwort = ?");
+			statement.setString(1, username);
+			statement.setString(2, passwort);
+			
+			resultSet = statement.executeQuery();
+			
+			if (!resultSet.next()) {
+				return false;
+			} else {
+				return true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		return false;
+	}
+	
+	public static boolean CheckExistUsername(String username) throws SQLException {
+		// INSERT IF NOT EXIST TESTEN
+		
+		// Datenbankverbindungseinstellungen definieren
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
+		final String dbUsername = "root";
+		final String dbPassword = "";
+						
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+				
+		try {
+			// Datenbankverbindung aufbauen
+			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
+				
+			// SQL-Befehlsobjekt erstellen
+			statement = connection.prepareStatement("SELECT username FROM pwmanager.user WHERE username = ?");
+			statement.setString(1, username);
+			
+			resultSet = statement.executeQuery();
+			
+			if (!resultSet.next()) {
+				return false;
+			} else {
+				return true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		return false;
+	}
+	
+	public static boolean CheckExistHWID(String hwid) throws SQLException {
+		// Datenbankverbindungseinstellungen definieren
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
+		final String dbUsername = "root";
+		final String dbPassword = "";
+						
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+				
+		try {
+			// Datenbankverbindung aufbauen
+			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
+				
+			// SQL-Befehlsobjekt erstellen
+			statement = connection.prepareStatement("SELECT username FROM pwmanager.user WHERE username = ?");
+			statement.setString(1, hwid);
+			
+			resultSet = statement.executeQuery();
+			
+			if (!resultSet.next()) {
+				return false;
+			} else {
+				return true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		return false;
 	}
 }

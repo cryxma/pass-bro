@@ -17,7 +17,8 @@ import POJO.User;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -70,22 +71,34 @@ public class RegistryController {
     		user.setUsername(tfUsername.getText());
     		user.setPasswort(pfPasswort.getText());
     		user.setCreationDate(getCurrentDate()); // Gibt nur Datum aus, fehlt Zeit
-    		user.setHWID(12345);
-    		user.setSecurityQuestion(cbSecurityQuestion.getValue());
+    		user.setHWID(1234567);
+    		user.setSecurityQuestion(cbSecurityQuestion.getValue()); // Weiteres Fenster mit Abfrage zur Sicherheitsfrage- /antwort für die Passwortzurücksetzung
     		user.setsecurityAnswer(tfSecurityAnswer.getText());
-    		DbConnection.SetDataInDb(user);
     		
-        	lblSuccess.setText("Info: Account erfolgreich erstellt.");
+    		/* 
+    		 * GetDataFromDb
+    		 * Überprüfe, ob Username schon vergeben -> Fehlerausgabe
+    		 * Überprüfe, ob HWID schon vergeben -> Fehlerausgabe
+    		 * */
+    		boolean existUsername = DbConnection.CheckExistUsername(tfUsername.getText());
+    		//boolean existHwid = DbConnection.CheckExistHWID(); // Check HWID
+    		
+    		if (existUsername == true ) {
+    			lblSuccess.setText("Info: Benutzername schon vergeben.");
+    		} else {
+    			DbConnection.SetDataInDb(user);
+    			lblSuccess.setText("Info: Account erfolgreich erstellt.");
+    		}
     	} 
     	catch (Exception ex) {
     		lblSuccess.setText("Fehler: Account nicht erstellt.");
     	}
     }
     
-    public LocalDateTime getCurrentDate()
+    public Timestamp getCurrentDate()
     {
-    	LocalDateTime date = LocalDateTime.now();
-    	return date.withNano(0);
+    	Timestamp ts;
+    	return ts = new Timestamp(System.currentTimeMillis());
     }
     
     public String getHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
