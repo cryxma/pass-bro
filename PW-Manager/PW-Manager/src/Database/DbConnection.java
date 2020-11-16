@@ -43,7 +43,7 @@ public class DbConnection {
 				user.setUsername(resultSet.getString("username"));
 				user.setPasswort(resultSet.getString("passwort"));
 				user.setCreationDate(resultSet.getTimestamp("creationDate")); // Date erfordert, LocalDateTime wird gegeben -> Fehler | Cast/ Konvertierung
-				user.setHWID(resultSet.getInt("hwid"));
+				user.setHWID(resultSet.getString("hwid"));
 				user.setSecurityQuestion(resultSet.getString("securityQuestion"));
 				user.setsecurityAnswer(resultSet.getString("securityAnswer"));
 				userListe.add(user);

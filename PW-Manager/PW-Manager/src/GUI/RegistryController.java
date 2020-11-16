@@ -54,24 +54,25 @@ public class RegistryController {
     @FXML
     void handleButtonExitAction(ActionEvent event) throws NoSuchAlgorithmException, UnsupportedEncodingException {
     	// Eigenes Fenster initialisieren
-    	//Stage stage = (Stage) btExit.getScene().getWindow();
+    	Stage stage = (Stage) btExit.getScene().getWindow();
     	
     	// Fenster schließen
-    	//stage.close();
-    	tfUsername.setText(getHWID()); // 326-3e6-37a-340-30a-31b-356-31f-33f-321-3fc-35e-3af-31c-3aa-3fc
+    	stage.close();
+    	//tfUsername.setText(getHWID()); // 326-3e6-37a-340-30a-31b-356-31f-33f-321-3fc-35e-3af-31c-3aa-3fc
     }
 
     @FXML
-    void handleButtonRegistrierenAction(ActionEvent event) throws SQLException {
+    void handleButtonRegistrierenAction(ActionEvent event) throws SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
     	// Datenbank auslesen
     	// HWID überprüfen
+    	String hwid = getHWID();
     	
     	try {
     		User user = new User();
     		user.setUsername(tfUsername.getText());
     		user.setPasswort(pfPasswort.getText());
     		user.setCreationDate(getCurrentDate()); // Gibt nur Datum aus, fehlt Zeit
-    		user.setHWID(1234567);
+    		user.setHWID(hwid);
     		user.setSecurityQuestion(cbSecurityQuestion.getValue()); // Weiteres Fenster mit Abfrage zur Sicherheitsfrage- /antwort für die Passwortzurücksetzung
     		user.setsecurityAnswer(tfSecurityAnswer.getText());
     		
@@ -81,7 +82,7 @@ public class RegistryController {
     		
     		if (existUsername == true ) {
     			lblSuccess.setText("Info: Benutzername schon vergeben.");
-    		} else if (existHwid == false) {
+    		} else if (existHwid == true) {
     			lblSuccess.setText("Info: Du hast bereits einen Account.");
     		}
     		else {

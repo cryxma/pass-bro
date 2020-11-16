@@ -9,7 +9,7 @@ public class User extends Person{
 	private String username;
 	private String passwort;
 	private Timestamp creationDate;
-	private int hwid;
+	private String hwid;
 	private String securityQuestion;
 	private String securityAnswer;
 	
@@ -44,7 +44,7 @@ public class User extends Person{
 	/**
 	 * @return the hwid 
 	 */
-	public int getHwid() {
+	public String getHwid() {
 		return this.hwid;
 	}
 	
@@ -111,7 +111,7 @@ public class User extends Person{
 	/**
 	 * set hwid
 	 */
-	public void setHWID(int hwid) {
+	public void setHWID(String hwid) {
 		this.hwid = hwid;
 	}
 	
