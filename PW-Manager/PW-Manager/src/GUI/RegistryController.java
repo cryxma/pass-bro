@@ -58,14 +58,13 @@ public class RegistryController {
     	
     	// Fenster schließen
     	stage.close();
-    	//tfUsername.setText(getHWID()); // 326-3e6-37a-340-30a-31b-356-31f-33f-321-3fc-35e-3af-31c-3aa-3fc
     }
 
     @FXML
     void handleButtonRegistrierenAction(ActionEvent event) throws SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
     	// Datenbank auslesen
     	// HWID überprüfen
-    	String hwid = getHWID();
+    	String hwid = GetHWID();
     	
     	try {
     		User user = new User();
@@ -78,16 +77,16 @@ public class RegistryController {
     		
     		// Überprüfen, ob Benutzername/ HWID schon vergeben
     		boolean existUsername = DbConnection.CheckExistUsername(tfUsername.getText());
-    		boolean existHwid = DbConnection.CheckExistHWID(getHWID());
+    		boolean existHwid = DbConnection.CheckExistHWID(GetHWID());
     		
     		if (existUsername == true ) {
-    			lblSuccess.setText("Info: Benutzername schon vergeben.");
+    			lblSuccess.setText("Benutzername schon vergeben.");
     		} else if (existHwid == true) {
-    			lblSuccess.setText("Info: Du hast bereits einen Account.");
+    			lblSuccess.setText("Du hast bereits einen Account.");
     		}
     		else {
     			DbConnection.SetDataInDb(user);
-    			lblSuccess.setText("Info: Account erfolgreich erstellt.");
+    			lblSuccess.setText("Account erfolgreich erstellt.");
     		}
     	} 
     	catch (Exception ex) {
@@ -101,7 +100,7 @@ public class RegistryController {
     	return ts = new Timestamp(System.currentTimeMillis());
     }
     
-    public String getHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String GetHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
     	String s = "";
         final String main = System.getenv("PROCESSOR_IDENTIFIER") + System.getenv("COMPUTERNAME") + System.getProperty("user.name").trim();
         final byte[] bytes = main.getBytes("UTF-8");

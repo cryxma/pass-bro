@@ -12,7 +12,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Login.fxml"));
-			Scene scene = new Scene(root,400,300);
+			Scene scene = new Scene(root,409,314);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Password Manager - Login");
 			primaryStage.setScene(scene);

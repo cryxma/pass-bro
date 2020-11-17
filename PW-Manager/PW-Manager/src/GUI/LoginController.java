@@ -1,6 +1,9 @@
 package GUI;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import Database.DbConnection;
@@ -58,14 +61,20 @@ public class LoginController {
         }
     }
     
-    private void logIn() throws SQLException {
+    private void logIn() throws SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {
     	String username = tfUsername.getText().toString();
     	String passwort = pfPasswort.getText().toString();
     	
-    	boolean result = DbConnection.loginQuery(username, passwort);
+    	// HWID überprüfen
+    	String hwid = GetHWID().toString();
     	
-    	if (result == false) {
+    	boolean checkExistAccount = DbConnection.CheckExistAccount(username, passwort);
+    	boolean checkValidHwid = DbConnection.CheckValidHwid(username, hwid);
+    	
+    	if (checkExistAccount == false) {
     		lblSuccess.setText("Benutzername oder Passwort falsch.");
+    	} else if (checkValidHwid == false) {
+    		lblSuccess.setText("Du kannst dich nur von deinem Computer einloggen.");
     	} else {
     		// Neues Fenster öffnen
             try {
@@ -79,6 +88,23 @@ public class LoginController {
                 ioe.printStackTrace();
             }
     	}
+    }
+    
+    public String GetHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    	String s = "";
+        final String main = System.getenv("PROCESSOR_IDENTIFIER") + System.getenv("COMPUTERNAME") + System.getProperty("user.name").trim();
+        final byte[] bytes = main.getBytes("UTF-8");
+        final MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        final byte[] md5 = messageDigest.digest(bytes);
+        int i = 0;
+        for (final byte b : md5) {
+            s += Integer.toHexString((b & 0xFF) | 0x300).substring(0, 3);
+            if (i != md5.length - 1) {
+                s += "-";
+            }
+            i++;
+        }
+        return s;
     }
 }
 

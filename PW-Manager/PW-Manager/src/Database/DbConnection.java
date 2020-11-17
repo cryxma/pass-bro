@@ -115,7 +115,7 @@ public class DbConnection {
 		}
 	}
 	
-	public static boolean loginQuery(String username, String passwort) throws SQLException {
+	public static boolean CheckExistAccount(String username, String passwort) throws SQLException {
 		// Datenbankverbindungseinstellungen definieren
 		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
 		final String dbUsername = "root";
@@ -133,6 +133,52 @@ public class DbConnection {
 			statement = connection.prepareStatement("SELECT username, passwort FROM pwmanager.user WHERE username = ? and passwort = ?");
 			statement.setString(1, username);
 			statement.setString(2, passwort);
+			
+			resultSet = statement.executeQuery();
+			
+			if (!resultSet.next()) {
+				return false;
+			} else {
+				return true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		return false;
+	}
+	
+	public static boolean CheckValidHwid(String username, String hwid) throws SQLException {
+		// Datenbankverbindungseinstellungen definieren
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
+		final String dbUsername = "root";
+		final String dbPassword = "";
+						
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+				
+		try {
+			// Datenbankverbindung aufbauen
+			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
+				
+			// SQL-Befehlsobjekt erstellen
+			statement = connection.prepareStatement("SELECT username, hwid FROM pwmanager.user WHERE username = ? and hwid = ?");
+			statement.setString(1, username);
+			statement.setString(2, hwid);
 			
 			resultSet = statement.executeQuery();
 			
