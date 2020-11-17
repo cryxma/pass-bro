@@ -298,4 +298,94 @@ public class DbConnection {
 		}
 		return false;
 	}
+	
+	public static boolean CheckExistAccount(String username, String password, String securityQuestion, String securityAnswer) throws SQLException {
+		// Datenbankverbindungseinstellungen definieren
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
+		final String dbUsername = "root";
+		final String dbPassword = "";
+						
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+				
+		try {
+			// Datenbankverbindung aufbauen
+			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
+				
+			// SQL-Befehlsobjekt erstellen
+			statement = connection.prepareStatement("SELECT username, passwort, securityQuestion, securityAnswer FROM pwmanager.user WHERE username = ? and passwort = ? and securityQuestion = ? and securityAnswer = ?");
+			statement.setString(1, username);
+			statement.setString(2, password);
+			statement.setString(3, securityQuestion);
+			statement.setString(4, securityAnswer);
+			
+			resultSet = statement.executeQuery();
+			
+			if (!resultSet.next()) {
+				return false;
+			} else {
+				return true;
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+		return false;
+	}
+	
+	public static void ResetAccount(String newHWID, String username, String password, String securityQuestion, String securityAnswer) throws SQLException {
+		// Datenbankverbindungseinstellungen definieren
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
+		final String dbUsername = "root";
+		final String dbPassword = "";
+								
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+						
+		try {
+			// Datenbankverbindung aufbauen
+			connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword); 
+						
+			// SQL-Befehlsobjekt erstellen
+			statement = connection.prepareStatement("UPDATE pwmanager.user SET hwid = ? WHERE username = ? and passwort = ? and securityQuestion = ? and securityAnswer = ?");
+			statement.setString(1, newHWID);
+			statement.setString(2, username);
+			statement.setString(3, password);
+			statement.setString(4, securityQuestion);
+			statement.setString(5, securityAnswer);
+					
+			statement.executeUpdate();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+			if (statement != null) {
+				statement.close();
+			}
+			if (connection != null) {
+				connection.close();
+			}
+		}
+	}
 }
