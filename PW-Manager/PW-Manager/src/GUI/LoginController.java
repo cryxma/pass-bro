@@ -45,6 +45,9 @@ public class LoginController {
 	 
 	 @FXML
 	 private Button btResetAccount;
+	 
+	 @FXML
+	 private Button btResetPassword;
 
     @FXML
     void handleButtonLoginAction(ActionEvent event) {
@@ -57,7 +60,6 @@ public class LoginController {
 
     @FXML
     void handleButtonRegistrierenAction(ActionEvent event) {
-        // Neues Fenster öffnen
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registry.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -85,7 +87,6 @@ public class LoginController {
     	} else if (checkValidHwid == false) {
     		lblSuccess.setText("Du kannst dich nur von deinem Computer einloggen.");
     	} else {
-    		// Neues Fenster öffnen
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -101,7 +102,6 @@ public class LoginController {
     
 	 @FXML
 	 void handleButtonResetAccountAction(ActionEvent event) {
-		// Neues Fenster öffnen
          try {
              FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResetHwid.fxml"));
              Parent root = (Parent) fxmlLoader.load();
@@ -117,6 +117,20 @@ public class LoginController {
 	 @FXML
 	 void handleButtonResetDragOverAction(MouseDragEvent event) {
 		 // Hover unterstrichen
+	 }
+	 
+	 @FXML
+	 void handleButtonResetPasswordAction(ActionEvent event) {
+         try {
+             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResetPassword.fxml"));
+             Parent root = (Parent) fxmlLoader.load();
+             Stage stage = new Stage();
+             stage.setTitle("Password Manager - Passwort zurücksetzen");
+             stage.setScene(new Scene(root));
+             stage.show();
+         } catch (IOException ioe) {
+             ioe.printStackTrace();
+         }
 	 }
     
     public String GetHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {

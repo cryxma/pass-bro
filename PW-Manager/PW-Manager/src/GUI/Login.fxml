@@ -28,7 +28,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btLogin" alignment="CENTER" layoutX="39.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleButtonLoginAction" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #000000; -fx-background-radius: 90;" text="Login" textFill="WHITE">
+      <Button fx:id="btLogin" alignment="CENTER" layoutX="39.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleButtonLoginAction" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #000000; -fx-background-radius: 90;" text="Login" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -43,17 +43,25 @@
             <Image url="@../../../../../../Desktop/Programming/eclipse-workspace/PasswortManager/images/padlock.png" />
          </image>
       </ImageView>
-      <Button fx:id="btRegistrieren" alignment="CENTER" layoutX="214.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleButtonRegistrierenAction" prefHeight="16.0" prefWidth="155.0" style="-fx-background-color: #000000; -fx-background-radius: 90;" text="Registrieren" textFill="WHITE">
+      <Button fx:id="btRegistrieren" alignment="CENTER" layoutX="211.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleButtonRegistrierenAction" prefHeight="16.0" prefWidth="155.0" style="-fx-background-color: #000000; -fx-background-radius: 90;" text="Registrieren" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Label fx:id="lblSuccess" alignment="CENTER" layoutX="15.0" layoutY="247.0" prefHeight="26.0" prefWidth="381.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="lblSuccess" alignment="CENTER" layoutX="15.0" layoutY="258.0" prefHeight="26.0" prefWidth="381.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
       <Button fx:id="btResetAccount" alignment="TOP_LEFT" layoutX="103.0" layoutY="215.0" mnemonicParsing="false" onAction="#handleButtonResetAccountAction" onMouseDragOver="#handleButtonResetDragOverAction" prefHeight="22.0" prefWidth="216.0" style="-fx-background-color: #212121;" text="Account mit anderen PC verbinden" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="11.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Button>
+      <Button fx:id="btResetPassword" alignment="TOP_LEFT" layoutX="103.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleButtonResetPasswordAction" prefHeight="22.0" prefWidth="216.0" style="-fx-background-color: #212121;" text="Passwort vergessen?" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="11.0" />
          </font>
