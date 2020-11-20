@@ -90,6 +90,11 @@ public class LoginController {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
+                
+                // Communication between LoginController and OverviewController to get the active user
+                OverviewController owController = fxmlLoader.getController();
+                owController.GetActiveUser(tfUsername.getText());
+                
                 Stage stage = new Stage();
                 stage.setTitle("Password Manager - Übersicht");
                 stage.setScene(new Scene(root));
@@ -131,6 +136,11 @@ public class LoginController {
          } catch (IOException ioe) {
              ioe.printStackTrace();
          }
+	 }
+	 
+	 @FXML
+	 private void initialize() throws IOException  {
+	    	
 	 }
     
     public String GetHWID() throws NoSuchAlgorithmException, UnsupportedEncodingException {
