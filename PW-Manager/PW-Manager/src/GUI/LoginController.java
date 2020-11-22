@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,8 +27,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LoginController {
-	 private static final EventHandler<? super MouseDragEvent> MouseDragEvent = null;
+	 //private static final EventHandler<? super MouseDragEvent> MouseDragEvent = null;
 
+    Stage stage;
 	@FXML
 	 private TextField tfUsername;
 
@@ -87,16 +89,25 @@ public class LoginController {
     	} else if (checkValidHwid == false) {
     		lblSuccess.setText("Du kannst dich nur von deinem Computer einloggen.");
     	} else {
+    			
+    		
+			/*	Login Fenster wird geschlossen
+    			
+            	Node source = (Node) event.getSource();
+            	Stage loginStage = (Stage) source.getSource().getWindow();
+            	loginStage.close();
+            */
+    		
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 
                 // Communication between LoginController and OverviewController to get the active user
-                OverviewController owController = fxmlLoader.getController();
+                MainWindowController owController = fxmlLoader.getController();
                 owController.GetActiveUser(tfUsername.getText());
                 
                 Stage stage = new Stage();
-                stage.setTitle("Password Manager - Übersicht");
+                stage.setTitle("Password Manager - Welcome");
                 stage.setScene(new Scene(root));
                 stage.show();
             } catch (IOException ioe) {
