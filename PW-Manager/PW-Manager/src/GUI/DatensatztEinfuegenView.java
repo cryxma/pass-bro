@@ -68,14 +68,11 @@ public class DatensatztEinfuegenView {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		
+			
     	}else {
     		System.out.println("Textfile already exist");
-    		// ein pop up fenster hinzufüegen um zu frage ob ma den file überschreiben will
+    		// ein pop up fenster hinzufüegen um zu fragen ob ma den file überschreiben will
     		//anzeigen in dem ordner mit focus = true dass den file schon existiert
-
     	}
     }
-    
-    
 }

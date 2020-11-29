@@ -39,7 +39,8 @@ import javafx.stage.Stage;
 
 public class MainWindowController {	
 	
-
+	Stage stage;
+	
     @FXML
     private AnchorPane mainPane;
     
@@ -106,9 +107,23 @@ public class MainWindowController {
 		borderPane.setCenter(pane);
 	}
 	
+	
+	
 	@FXML
 	void handleButtonLogOutAction(ActionEvent event) {
-		
+		stage = (Stage) logoutButton.getScene().getWindow();
+    	stage.close();
+    	
+    	 try {
+             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+             Parent root = (Parent) fxmlLoader.load();
+             Stage stage = new Stage();
+             stage.setTitle("Password Manager - Login");
+             stage.setScene(new Scene(root));
+             stage.show();
+         } catch (IOException ioe) {
+             ioe.printStackTrace();
+         }
 	}
 	
 	@FXML

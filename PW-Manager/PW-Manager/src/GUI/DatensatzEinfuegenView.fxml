@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -38,4 +39,7 @@
       <Label text="Datum erstellung" GridPane.rowIndex="4" />
       <Label fx:id="erstellungsDatum" prefHeight="21.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
    </children>
+   <padding>
+      <Insets left="50.0" top="70.0" />
+   </padding>
 </GridPane>
