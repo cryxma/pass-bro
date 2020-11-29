@@ -100,11 +100,11 @@ public class LoginController{
 			
 			
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 
                 // Communication between LoginController and OverviewController to get the active user
-                MainWindowController owController = fxmlLoader.getController();
+                OverviewController owController = fxmlLoader.getController();
                 owController.GetActiveUser(tfUsername.getText());
                 
                 Stage stage = new Stage();
