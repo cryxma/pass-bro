@@ -22,12 +22,43 @@ import javafx.scene.layout.VBox;
 
 public class OverviewController {
 	
-	
+    
 	
 	
 
+    @FXML
+    private TableColumn<?, ?> passwortColumn;
+
+  
+
+    @FXML
+    private TableView<?> tableView;
+
     
+
+   
+    @FXML
+    private TableColumn<?, ?> beschriftungColumn;
+
+    @FXML
+    private TableColumn<?, ?> datumUploadColumn;
+
+    @FXML
+    private TableColumn<?, ?> urlColumn;
+
     
+
+    @FXML
+    private TableColumn<?, ?> datumErstellungColumn;
+
+    @FXML
+    private TableColumn<?, ?> sicherheitsniveauColumn;
+
+  
+
+  
+	
+	
     @FXML
     private Button selectAllButton;
 

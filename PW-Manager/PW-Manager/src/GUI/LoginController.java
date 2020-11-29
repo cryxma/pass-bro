@@ -33,6 +33,7 @@ public class LoginController{
 	 //private static final EventHandler<? super MouseDragEvent> MouseDragEvent = null;
 
     Stage stage;
+    
 	@FXML
 	 private TextField tfUsername;
 
@@ -100,12 +101,12 @@ public class LoginController{
 			
 			
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 
                 // Communication between LoginController and OverviewController to get the active user
-                OverviewController owController = fxmlLoader.getController();
-                owController.GetActiveUser(tfUsername.getText());
+                MainWindowController mainWindowController = fxmlLoader.getController();
+                mainWindowController.GetActiveUser(tfUsername.getText());
                 
                 Stage stage = new Stage();
                 stage.setTitle("Password Manager - Welcome");
