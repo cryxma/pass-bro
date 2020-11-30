@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="mainPaneHelpView" prefHeight="800.0" prefWidth="700.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HelpController">
+   <children>
+      <Label prefHeight="84.0" prefWidth="310.0" text="Hilfe">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <TextArea layoutY="107.0" prefHeight="375.0" prefWidth="547.0" />
+   </children>
+</AnchorPane>

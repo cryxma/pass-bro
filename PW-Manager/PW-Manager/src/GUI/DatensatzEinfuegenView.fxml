@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane fx:id="datensatztEinfuegenView" hgap="20.0" prefHeight="800.0" prefWidth="700.0" vgap="50.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DatensatztEinfuegenView">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="100.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+   </rowConstraints>
+   <children>
+      <TextField fx:id="eingabeBeschriftung" GridPane.columnIndex="1" />
+      <TextField fx:id="eingabeWebseite" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="eingabePasswort" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label text="Beschriftung" />
+      <Label text="Password" GridPane.rowIndex="2" />
+      <Label text="Webseite" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" text="generiere Password" GridPane.rowIndex="5" />
+      <TextArea prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6" />
+      <TextArea prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Button mnemonicParsing="false" text="verschlüssele Password" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button fx:id="neuesFileErstellen" mnemonicParsing="false" onAction="#neuesFileErstellen" text="speichere Datensatzt" GridPane.rowIndex="7" />
+      <Button mnemonicParsing="false" text="lösche " GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextField fx:id="eingabeDatumUploadBenutzerdefiniert" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label prefHeight="21.0" prefWidth="222.0" text="Datum upload benutzerdefiniert" GridPane.rowIndex="3" />
+      <Label text="Datum erstellung" GridPane.rowIndex="4" />
+      <Label fx:id="erstellungsDatum" prefHeight="21.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+   </children>
+   <padding>
+      <Insets left="50.0" top="70.0" />
+   </padding>
+</GridPane>

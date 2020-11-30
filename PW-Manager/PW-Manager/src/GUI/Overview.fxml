@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="mainPaneOverview" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OverviewController">
+   <children>
+      <AnchorPane prefHeight="150.0" prefWidth="700.0" style="-fx-background-color: grey;">
+         <children>
+            <Button fx:id="searchButton" layoutX="373.0" layoutY="94.0" mnemonicParsing="false" onAction="#searchFile" text="Suche File" />
+            <TextField fx:id="searchTextField" layoutX="186.0" layoutY="94.0" text="wonach suchst du?" />
+            <Label layoutX="228.0" layoutY="21.0" text="Übersicht">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tableView" layoutY="150.0" prefHeight="650.0" prefWidth="700.0">
+        <columns>
+          <TableColumn fx:id="beschriftungColumn" prefWidth="123.0" text="Beschriftung" />
+          <TableColumn fx:id="urlColumn" prefWidth="73.0" text="URL" />
+            <TableColumn fx:id="passwortColumn" minWidth="0.0" prefWidth="117.0" text="Passwort" />
+            <TableColumn fx:id="sicherheitsniveauColumn" minWidth="0.0" prefWidth="134.0" text="Sicherheitsniveau" />
+            <TableColumn fx:id="datumErstellungColumn" maxWidth="146.0" minWidth="0.0" prefWidth="129.0" text="Datum Erstellung" />
+            <TableColumn fx:id="datumUploadColumn" minWidth="0.0" prefWidth="123.0" text="Datum Upload" />
+        </columns>
+      </TableView>
+      <Button fx:id="neuErstellen" layoutX="550.0" layoutY="33.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Neu erstellen" />
+      <Button fx:id="selectAllButton" layoutX="550.0" layoutY="64.0" mnemonicParsing="false" onAction="#selectAllRows" prefHeight="31.0" prefWidth="127.0" text="Alle Auswählen" />
+      <Button fx:id="deleteButton" layoutX="550.0" layoutY="95.0" mnemonicParsing="false" onAction="#deleteSelectedRow" prefHeight="31.0" prefWidth="127.0" text="File löschen" />
+   </children>
+</AnchorPane>

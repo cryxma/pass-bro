@@ -2,9 +2,11 @@ package GUI;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import Database.DbConnection;
 import POJO.User;
@@ -14,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,10 +29,11 @@ import javafx.scene.input.MouseDragEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class LoginController {
+public class LoginController{
 	 //private static final EventHandler<? super MouseDragEvent> MouseDragEvent = null;
 
     Stage stage;
+    
 	@FXML
 	 private TextField tfUsername;
 
@@ -50,6 +54,8 @@ public class LoginController {
 	 
 	 @FXML
 	 private Button btResetPassword;
+	 
+	 private Stage stage1;
 
     @FXML
     void handleButtonLoginAction(ActionEvent event) {
@@ -90,21 +96,17 @@ public class LoginController {
     		lblSuccess.setText("Du kannst dich nur von deinem Computer einloggen.");
     	} else {
     			
-    		
-			/*	Login Fenster wird geschlossen
-    			
-            	Node source = (Node) event.getSource();
-            	Stage loginStage = (Stage) source.getSource().getWindow();
-            	loginStage.close();
-            */
-    		
+    		// schliesst Stage Login
+			closeLogin();
+			
+			
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Overview.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 
                 // Communication between LoginController and OverviewController to get the active user
-                OverviewController owController = fxmlLoader.getController();
-                owController.GetActiveUser(tfUsername.getText());
+                MainWindowController mainWindowController = fxmlLoader.getController();
+                mainWindowController.GetActiveUser(tfUsername.getText());
                 
                 Stage stage = new Stage();
                 stage.setTitle("Password Manager - Welcome");
@@ -116,7 +118,8 @@ public class LoginController {
     	}
     }
     
-	 @FXML
+
+	@FXML
 	 void handleButtonResetAccountAction(ActionEvent event) {
          try {
              FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ResetHwid.fxml"));
@@ -129,6 +132,12 @@ public class LoginController {
              ioe.printStackTrace();
          }
 	 }
+	 
+	 // schliesst Stage Login zugriff durch Button btLogin
+	 private void closeLogin() {
+	     stage1 = (Stage) btLogin.getScene().getWindow();
+	     stage1.close();
+	}
 	 
 	 @FXML
 	 void handleButtonResetDragOverAction(MouseDragEvent event) {
@@ -170,5 +179,7 @@ public class LoginController {
         }
         return s;
     }
+
+	
 }
 

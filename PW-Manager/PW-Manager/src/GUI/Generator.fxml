@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="mainPaneGenerator" prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GeneratorController">
+   <children>
+      <AnchorPane prefHeight="150.0" prefWidth="700.0" style="-fx-background-color: grey;">
+         <children>
+            <Button layoutX="579.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="File löschen" />
+            <Button layoutX="579.0" layoutY="62.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" text="Neues Ordner" />
+            <Button fx:id="openDataEinfuegenView" layoutX="579.0" layoutY="31.0" mnemonicParsing="false" onAction="#openDataEinfuegenView" prefHeight="31.0" prefWidth="113.0" text="Neu erstellen" />
+            <Label layoutX="244.0" layoutY="14.0" prefHeight="122.0" prefWidth="179.0" text="Generator">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="150.0" prefHeight="650.0" prefWidth="700.0">
+         <children>
+            <Label layoutX="91.0" layoutY="60.0" text="Gib Länge Passwort ein:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="91.0" layoutY="100.0" text="Wähle die Elemente des Passworts ein:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="283.0" layoutY="56.0" prefHeight="31.0" prefWidth="326.0" />
+            <Label layoutX="91.0" layoutY="262.0" text="Update Erinnerung:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="175.0" layoutY="400.0" prefHeight="31.0" prefWidth="431.0" />
+            <Button layoutX="88.0" layoutY="400.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="generiere " />
+            <Button layoutX="88.0" layoutY="431.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="speichere" />
+            <Button layoutX="88.0" layoutY="462.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="kopiere" />
+            <Label layoutX="91.0" layoutY="541.0" text="Sicherheitsniveau:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <CheckBox layoutX="93.0" layoutY="143.0" mnemonicParsing="false" text="Symbole" />
+            <CheckBox layoutX="93.0" layoutY="173.0" mnemonicParsing="false" text="Kleinbuchstaben" />
+            <CheckBox layoutX="93.0" layoutY="203.0" mnemonicParsing="false" text="Großbuchstaben" />
+            <CheckBox layoutX="93.0" layoutY="236.0" mnemonicParsing="false" text="Ziffern" />
+            <CheckBox layoutX="491.0" layoutY="300.0" mnemonicParsing="false" text="benutzerdefiniert" />
+            <CheckBox layoutX="307.0" layoutY="300.0" mnemonicParsing="false" text="monatlich" />
+            <CheckBox layoutX="89.0" layoutY="300.0" mnemonicParsing="false" text="wochentlich" />
+            <Label layoutX="91.0" layoutY="334.0" text="Verschlüsselung Art:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <CheckBox layoutX="91.0" layoutY="361.0" mnemonicParsing="false" text="RSA" />
+            <CheckBox layoutX="309.0" layoutY="361.0" mnemonicParsing="false" text="AES" />
+            <CheckBox layoutX="493.0" layoutY="361.0" mnemonicParsing="false" text="SHA" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
