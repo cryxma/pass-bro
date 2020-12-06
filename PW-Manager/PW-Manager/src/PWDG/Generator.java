@@ -1,25 +1,22 @@
 package PWDG;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 public class Generator {
 	private ConcatString zeichenKette;
+	private Set<Bezeichner> erwarteteZeichen;
 	private int passLaenge;
 
-	public Generator() {
-		// Konstrukor
-
+	private Generator() {
+		this.zeichenKette = new ConcatString();
+		this.erwarteteZeichen = new HashSet<Bezeichner>();
 	}
 
-	public Generator(int passLaenge, ConcatString zeichenKette) {
-		this.setZeichenKette(zeichenKette);
+	private Generator(int passLaenge) { 
+		this();
 		this.setPassLaenge(passLaenge);
-	}
-
-	public ConcatString getZeichenKette() {
-		return zeichenKette;
-	}
-
-	public void setZeichenKette(ConcatString zeichenKette) {
-		this.zeichenKette = zeichenKette;
 	}
 
 	public int getPassLaenge() {
@@ -30,7 +27,27 @@ public class Generator {
 		this.passLaenge = passLaenge;
 	}
 
-	public static void test() {
-		Generator g = new Generator(30, new ConcatString());
+	public void addBezeichner(Bezeichner b) {
+		this.erwarteteZeichen.add(b);
+	}
+	
+	public void removeBezeichner(Bezeichner b) {
+		this.erwarteteZeichen.remove(b);
+	}
+	
+	public String pwd() {
+		Random random = new Random();
+		String passwort = "";
+		String zeichen = this.zeichenKette.getZeichenkette(this.erwarteteZeichen);
+		for (int i = 0; i < this.passLaenge; i++) {
+			passwort = passwort.concat(
+				String.valueOf(zeichen.charAt(random.nextInt(zeichen.length())))
+			);
+		}
+		return passwort;
+	}
+	
+	public static Generator factory(int passLaenge) {
+		return new Generator(passLaenge);
 	}
 }
