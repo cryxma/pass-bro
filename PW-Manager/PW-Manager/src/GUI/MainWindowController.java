@@ -11,7 +11,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import Database.DbConnection;
 import POJO.User;
 import javafx.collections.FXCollections;
@@ -40,6 +39,7 @@ import javafx.stage.Stage;
 public class MainWindowController {	
 	
 	Stage stage;
+	String activeUser;
 	
     @FXML
     private AnchorPane mainPane;
@@ -92,7 +92,7 @@ public class MainWindowController {
 	}
 	
 	@FXML
-	void handleButtonOpenAccountViewAction(ActionEvent event) {
+	void handleButtonOpenAccountViewAction(ActionEvent event) throws IOException {
 		setViewName("Account");
 	}
 	
@@ -106,9 +106,7 @@ public class MainWindowController {
 		}
 		borderPane.setCenter(pane);
 	}
-	
-	
-	
+
 	@FXML
 	void handleButtonLogOutAction(ActionEvent event) {
 		stage = (Stage) logoutButton.getScene().getWindow();
@@ -132,9 +130,8 @@ public class MainWindowController {
     }
 	
 	
-	public void GetActiveUser(String text) {
-		// TODO Auto-generated method stub
-		
+	public void GetActiveUser(String username) {
+		this.activeUser = username;
 	}
 	
 }
