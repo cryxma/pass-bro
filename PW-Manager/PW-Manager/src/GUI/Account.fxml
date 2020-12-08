@@ -98,9 +98,9 @@
                </font>
             </Label>
             <PasswordField fx:id="pfNewPasswortConfirmation" alignment="CENTER" layoutX="300.0" layoutY="115.0" prefHeight="25.0" prefWidth="365.0" promptText="Bestätigen Sie ihr neues Passwort" />
-            <Button layoutX="274.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleButtonChangePasswordAction" style="-fx-background-color: #bce1cd; -fx-border-color: #000000; -fx-border-radius: 5;" text="Passwort ändern">
+            <Button layoutX="279.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonChangePasswordAction" style="-fx-background-color: #bce1cd; -fx-border-color: #000000; -fx-background-radius: 5; -fx-border-radius: 5;" text="Passwort ändern">
                <font>
-                  <Font name="Arial Bold" size="16.0" />
+                  <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
          </children>
@@ -131,9 +131,9 @@
             </Label>
             <TextField fx:id="tfNewSecurityAnswerConfirmation" alignment="CENTER" layoutX="300.0" layoutY="120.0" prefWidth="365.0" promptText="Neue Sicherheitsantwort" />
             <AnchorPane prefHeight="3.0" prefWidth="700.0" style="-fx-background-color: grey;" />
-            <Button fx:id="btChangeSecurityInformations" layoutX="206.0" layoutY="161.0" mnemonicParsing="false" onAction="#handleButtonChangeSecurityDataAction" style="-fx-background-color: #bce1cd; -fx-border-color: #000000; -fx-border-radius: 5;" text="Sicherheitsfrage &amp; Antwort ändern">
+            <Button fx:id="btChangeSecurityInformations" layoutX="215.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonChangeSecurityDataAction" style="-fx-background-color: #bce1cd; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;" text="Sicherheitsfrage &amp; Antwort ändern">
                <font>
-                  <Font name="Arial Bold" size="16.0" />
+                  <Font name="Arial Bold" size="15.0" />
                </font>
             </Button>
          </children>

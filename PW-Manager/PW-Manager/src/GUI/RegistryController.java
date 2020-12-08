@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -29,6 +30,7 @@ public class RegistryController {
 	ObservableList<String> securityQuestionList = FXCollections.observableArrayList("Wie lautet der M‰dchenname deiner Mutter?", 
 			"Was ist der Name deines ersten Haustieres?", "Was war das erste Konzert, auf dem du warst?",
 			"Welche Grunschule hast du besucht?", "Wo bist du geboren?");
+	private Stage stage;
 	
     @FXML
     private TextField tfUsername;
@@ -40,7 +42,7 @@ public class RegistryController {
     private Button btRegistrieren;
 
     @FXML
-    private Button btExit;
+    private Button btBackToLogin;
 
     @FXML
     private TextField tfSecurityAnswer;
@@ -52,13 +54,27 @@ public class RegistryController {
     private ComboBox<String> cbSecurityQuestion;
 
     @FXML
-    void handleButtonExitAction(ActionEvent event) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-    	// Eigenes Fenster initialisieren
-    	Stage stage = (Stage) btExit.getScene().getWindow();
-    	
-    	// Fenster schlieﬂen
-    	stage.close();
+    void handleButtonBackToLoginAction(ActionEvent event) {
+    	try {
+        	// schliesst Stage Login
+        	closeLogin();
+        	
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Password Manager - Login");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
+    
+    // schliesst Stage Login zugriff durch Button btLogin
+ 	private void closeLogin() {
+ 		stage = (Stage) btRegistrieren.getScene().getWindow();
+ 		stage.close();
+ 	}
 
     @FXML
     void handleButtonRegistrierenAction(ActionEvent event) throws SQLException, NoSuchAlgorithmException, UnsupportedEncodingException {

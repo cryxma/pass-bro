@@ -69,6 +69,9 @@ public class LoginController{
     @FXML
     void handleButtonRegistrierenAction(ActionEvent event) {
         try {
+        	// schliesst Stage Login
+        	closeLogin();
+        	
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registry.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -98,7 +101,6 @@ public class LoginController{
     			
     		// schliesst Stage Login
 			closeLogin();
-			
 			
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
