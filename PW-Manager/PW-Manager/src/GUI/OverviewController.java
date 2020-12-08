@@ -21,21 +21,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class OverviewController {
-	
-    
-	
-	
-
     @FXML
     private TableColumn<?, ?> passwortColumn;
 
-  
-
     @FXML
     private TableView<?> tableView;
-
-    
-
    
     @FXML
     private TableColumn<?, ?> beschriftungColumn;
@@ -46,33 +36,20 @@ public class OverviewController {
     @FXML
     private TableColumn<?, ?> urlColumn;
 
-    
-
     @FXML
     private TableColumn<?, ?> datumErstellungColumn;
 
     @FXML
     private TableColumn<?, ?> sicherheitsniveauColumn;
-
-  
-
-  
-	
 	
     @FXML
     private Button selectAllButton;
 
-
     @FXML
     private Button deleteButton;
 
-    
     @FXML
     private TextField searchTextField;
-    
-    
-    
-    
 
 	@FXML
     private Button neuErstellen; 
@@ -112,10 +89,6 @@ public class OverviewController {
 
     @FXML
     private Separator separator;
-    
-    
-    
-    
     
     @FXML
     void selectAllRows(ActionEvent event) {

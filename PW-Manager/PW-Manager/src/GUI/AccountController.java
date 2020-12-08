@@ -21,6 +21,7 @@ public class AccountController {
 	ObservableList<String> securityQuestionList = FXCollections.observableArrayList("Wie lautet der Mädchenname deiner Mutter?", 
 			"Was ist der Name deines ersten Haustieres?", "Was war das erste Konzert, auf dem du warst?",
 			"Welche Grunschule hast du besucht?", "Wo bist du geboren?");
+	String activeUser;
 
     @FXML
     private Label lblUsername;
@@ -93,4 +94,8 @@ public class AccountController {
         }
         return s;
     }
+    
+    public void GetActiveUser(String username) {
+		this.activeUser = username;
+	}
 }
