@@ -9,9 +9,10 @@ public class Generator {
 	private Set<Bezeichner> erwarteteZeichen;
 	private int passLaenge;
 
-	private Generator() {
+	private Generator() { 
 		this.zeichenKette = new ConcatString();
 		this.erwarteteZeichen = new HashSet<Bezeichner>();
+		this.passLaenge = 13;
 	}
 
 	private Generator(int passLaenge) { 
@@ -27,15 +28,19 @@ public class Generator {
 		this.passLaenge = passLaenge;
 	}
 
-	public void addBezeichner(Bezeichner b) {
+	public void addBezeichner(Bezeichner b) {  //Ändern des Sets mit den neu Vorgegebenen Zeichen  
 		this.erwarteteZeichen.add(b);
 	}
 	
-	public void removeBezeichner(Bezeichner b) {
+	public void removeBezeichner(Bezeichner b) {  //Ändern des Sets mit den neu Vorgegebenen Zeichen  
 		this.erwarteteZeichen.remove(b);
 	}
 	
-	public String pwd() {
+	public Set<Bezeichner> getErwarteteZeichen() {
+		return erwarteteZeichen;
+	}
+	
+	public String pwd() {  //HauptMethode zum erzeugen des Passworts, aus dem Set mit den gewollten Zeichen und der gewollten Länge
 		Random random = new Random();
 		String passwort = "";
 		String zeichen = this.zeichenKette.getZeichenkette(this.erwarteteZeichen);
@@ -50,4 +55,5 @@ public class Generator {
 	public static Generator factory(int passLaenge) {
 		return new Generator(passLaenge);
 	}
+
 }

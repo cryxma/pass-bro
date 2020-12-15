@@ -13,7 +13,7 @@ public class ConcatString {
 		String nummern = "0123456789";
 		String sonderzeichen = ".,:-_#+*/$€%()§ß";
 		this.zeichenSammlung = new Hashtable<Bezeichner, String>() {
-			private static final long serialVersionUID = 8258407800450060225L;
+			private static final long serialVersionUID = 8258407800450060225L; 
 		{
 			put(Bezeichner.KLEINBUCHSTABEN, kleinbuchstaben);
 			put(Bezeichner.GROSSBUCHSTABEN, grossbuchstaben);
@@ -22,7 +22,7 @@ public class ConcatString {
 		}};
 	}
 	
-	public String getZeichenkette(Set<Bezeichner> erwarteteZeichen) {
+	public String getZeichenkette(Set<Bezeichner> erwarteteZeichen) { 
 		String concatString = "";
 		for (Bezeichner b : erwarteteZeichen) {
 			concatString = concatString.concat(zeichenSammlung.get(b));

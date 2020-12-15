@@ -33,14 +33,14 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="283.0" layoutY="56.0" prefHeight="31.0" prefWidth="326.0" />
+            <TextField fx:id="passLaenge" layoutX="283.0" layoutY="56.0" prefHeight="31.0" prefWidth="326.0" />
             <Label layoutX="91.0" layoutY="262.0" text="Update Erinnerung:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="175.0" layoutY="400.0" prefHeight="31.0" prefWidth="431.0" />
-            <Button layoutX="88.0" layoutY="400.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="generiere " />
+            <TextField fx:id="ausgabePasswort" layoutX="175.0" layoutY="400.0" prefHeight="31.0" prefWidth="431.0" />
+            <Button fx:id="generiere" layoutX="88.0" layoutY="400.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="generiere " onAction="#generierePasswort" />
             <Button layoutX="88.0" layoutY="431.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="speichere" />
             <Button layoutX="88.0" layoutY="462.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="kopiere" />
             <Label layoutX="91.0" layoutY="541.0" text="Sicherheitsniveau:">
@@ -48,10 +48,10 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <CheckBox layoutX="93.0" layoutY="143.0" mnemonicParsing="false" text="Symbole" />
-            <CheckBox layoutX="93.0" layoutY="173.0" mnemonicParsing="false" text="Kleinbuchstaben" />
-            <CheckBox layoutX="93.0" layoutY="203.0" mnemonicParsing="false" text="Großbuchstaben" />
-            <CheckBox layoutX="93.0" layoutY="236.0" mnemonicParsing="false" text="Ziffern" />
+            <CheckBox fx:id="symbole" layoutX="93.0" layoutY="143.0" mnemonicParsing="false" text="Symbole" />
+            <CheckBox fx:id="kleinbuchstaben" layoutX="93.0" layoutY="173.0" mnemonicParsing="false" text="Kleinbuchstaben" />
+            <CheckBox fx:id="grossbuchstaben" layoutX="93.0" layoutY="203.0" mnemonicParsing="false" text="Großbuchstaben" />
+            <CheckBox fx:id="ziffern" layoutX="93.0" layoutY="236.0" mnemonicParsing="false" text="Ziffern" />
             <CheckBox layoutX="491.0" layoutY="300.0" mnemonicParsing="false" text="benutzerdefiniert" />
             <CheckBox layoutX="307.0" layoutY="300.0" mnemonicParsing="false" text="monatlich" />
             <CheckBox layoutX="89.0" layoutY="300.0" mnemonicParsing="false" text="wochentlich" />
