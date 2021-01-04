@@ -38,8 +38,7 @@
       <TextField fx:id="eingabeDatumUploadBenutzerdefiniert" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <Label prefHeight="21.0" prefWidth="222.0" text="Datum upload benutzerdefiniert" GridPane.rowIndex="4" />
       <Label text="Datum erstellung" GridPane.rowIndex="5" />
-      <Label fx:id="erstellungsDatum" prefHeight="21.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Label fx:id="labelINFO" prefHeight="21.0" prefWidth="440.0" text="Info" GridPane.columnSpan="2" />
+      <Label fx:id="labelINFO" prefHeight="21.0" prefWidth="127.0" text="info:" />
    </children>
    <padding>
       <Insets left="50.0" top="70.0" />

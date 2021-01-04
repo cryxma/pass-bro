@@ -29,7 +29,7 @@
             <TableColumn fx:id="datumUploadColumn" minWidth="0.0" prefWidth="123.0" text="Datum Upload" />
         </columns>
       </TableView>
-      <Button fx:id="neuErstellen" layoutX="550.0" layoutY="33.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Neu erstellen" />
+      <Button layoutX="550.0" layoutY="33.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" text="Neu erstellen" />
       <Button fx:id="selectAllButton" layoutX="550.0" layoutY="64.0" mnemonicParsing="false" onAction="#selectAllRows" prefHeight="31.0" prefWidth="127.0" text="Alle Auswählen" />
       <Button fx:id="deleteButton" layoutX="550.0" layoutY="95.0" mnemonicParsing="false" onAction="#deleteSelectedRow" prefHeight="31.0" prefWidth="127.0" text="File löschen" />
    </children>

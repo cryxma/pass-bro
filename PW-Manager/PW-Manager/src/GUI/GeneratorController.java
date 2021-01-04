@@ -99,17 +99,17 @@ public class GeneratorController implements Initializable {
 		return wert;
 	}
 
-	// test
+	// test button neu erstellen
 	@FXML
 	void openDataEinfuegenView(ActionEvent event) {
 		Parent pane = null;
 		try {
 			pane = FXMLLoader.load(getClass().getResource("DatensatzEinfuegenView.fxml"));
+			mainPaneGenerator.getChildren().setAll(pane);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mainPaneGenerator.getChildren().setAll(pane);
+		
 	}
-
 }

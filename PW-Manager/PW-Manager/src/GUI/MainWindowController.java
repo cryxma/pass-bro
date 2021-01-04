@@ -71,7 +71,7 @@ public class MainWindowController {
     @FXML
     private Button generatorButton;
 
-	private Label tfUsername;
+	private Labeled tfUsername;
     
 
 	@FXML
@@ -92,26 +92,8 @@ public class MainWindowController {
 	}
 	
 	@FXML
-<<<<<<< HEAD
-	void handleButtonOpenAccountViewAction(ActionEvent event) {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Account.fxml"));
-		Parent root = null;
-		try {
-			root = (Parent) fxmlLoader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		borderPane.setCenter(root);
-		
-		AccountController accountcontroller = fxmlLoader.getController();
-		//accountcontroller.getLabel().setText(tfUsername.getText());
-
-=======
 	void handleButtonOpenAccountViewAction(ActionEvent event) throws IOException {
 		setViewName("Account");
->>>>>>> refs/remotes/origin/master
 	}
 	
 	private void setViewName(String nameFxmlView) {
@@ -148,27 +130,8 @@ public class MainWindowController {
     }
 	
 	
-<<<<<<< HEAD
-	public void GetActiveUser(String text) {
-		// TODO Auto-generated method stub
-		
-		
-=======
 	public void GetActiveUser(String username) {
 		this.activeUser = username;
->>>>>>> refs/remotes/origin/master
 	}
-	
-	public String passUsername() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
-        try {
-			Parent root = (Parent) fxmlLoader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-		MainWindowController mainWindowController = fxmlLoader.getController();
-        return mainWindowController.GetActiveUser(tfUsername.getText());	}
 	
 }

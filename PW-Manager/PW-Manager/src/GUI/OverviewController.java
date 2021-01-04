@@ -14,7 +14,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
@@ -24,31 +27,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-<<<<<<< HEAD
-public class OverviewController implements Initializable{
-
-=======
-public class OverviewController {
->>>>>>> refs/remotes/origin/master
-    @FXML
-<<<<<<< HEAD
-    private TableView<PasswordFile> tableView;
-=======
-    private TableColumn<?, ?> passwortColumn;
-
-    @FXML
-    private TableView<?> tableView;
-   
-    @FXML
-    private TableColumn<?, ?> beschriftungColumn;
-
-    @FXML
-    private TableColumn<?, ?> datumUploadColumn;
-
-    @FXML
-    private TableColumn<?, ?> urlColumn;
->>>>>>> refs/remotes/origin/master
+public class OverviewController  implements Initializable{
+	
+	
+	private TableView<PasswordFile> tableView;
+	
 
     @FXML
     private TableColumn<PasswordFile, String> passwortColumn;
@@ -60,28 +45,19 @@ public class OverviewController {
     private TableColumn<PasswordFile, String> urlColumn;
  
     /*
-
     @FXML
-<<<<<<< HEAD
     private TableColumn<PasswordFile, String> datumUploadColumn;
-
     @FXML
     private TableColumn<PasswordFile, String> urlColumn;
-
     @FXML
     private TableColumn<PasswordFile, String> datumErstellungColumn;
-
     @FXML
     private TableColumn<PasswordFile, String> sicherheitsniveauColumn;
-
   */
 
-  
+	  
 	
-=======
-    private TableColumn<?, ?> sicherheitsniveauColumn;
->>>>>>> refs/remotes/origin/master
-	
+   
     @FXML
     private Button selectAllButton;
 
@@ -92,7 +68,7 @@ public class OverviewController {
     private TextField searchTextField;
 
 	@FXML
-	private Button neuErstellen; 
+    private Button neuErstellen; 
 	
 	@FXML
 	private AnchorPane mainPaneOverview;
@@ -130,24 +106,10 @@ public class OverviewController {
     @FXML
     private Separator separator;
     
-<<<<<<< HEAD
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-=======
->>>>>>> refs/remotes/origin/master
     @FXML
     void selectAllRows(ActionEvent event) {
 
@@ -187,7 +149,9 @@ public class OverviewController {
 	private void addFile() {
 		
 	}
-
+	
+	
+	
 	
 	
 	

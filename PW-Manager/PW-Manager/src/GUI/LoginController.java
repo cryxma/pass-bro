@@ -120,8 +120,6 @@ public class LoginController{
     	}
     }
     
-    
-    
 
 	@FXML
 	 void handleButtonResetAccountAction(ActionEvent event) {
