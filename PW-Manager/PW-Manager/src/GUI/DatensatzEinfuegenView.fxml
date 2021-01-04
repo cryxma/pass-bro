@@ -12,6 +12,7 @@
       <ColumnConstraints minWidth="10.0" prefWidth="200.0" />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -22,22 +23,23 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
    <children>
-      <TextField fx:id="eingabeBeschriftung" GridPane.columnIndex="1" />
-      <TextField fx:id="eingabeWebseite" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField fx:id="eingabePasswort" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Label text="Beschriftung" />
-      <Label text="Password" GridPane.rowIndex="2" />
-      <Label text="Webseite" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="generiere Password" GridPane.rowIndex="5" />
-      <TextArea prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6" />
-      <TextArea prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Button mnemonicParsing="false" text="verschlüssele Password" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Button fx:id="neuesFileErstellen" mnemonicParsing="false" onAction="#neuesFileErstellen" text="speichere Datensatzt" GridPane.rowIndex="7" />
-      <Button mnemonicParsing="false" text="lösche " GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <TextField fx:id="eingabeDatumUploadBenutzerdefiniert" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Label prefHeight="21.0" prefWidth="222.0" text="Datum upload benutzerdefiniert" GridPane.rowIndex="3" />
-      <Label text="Datum erstellung" GridPane.rowIndex="4" />
-      <Label fx:id="erstellungsDatum" prefHeight="21.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="eingabeBeschriftung" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="eingabeWebseite" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="eingabePasswort" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label text="Beschriftung" GridPane.rowIndex="1" />
+      <Label text="Password" GridPane.rowIndex="3" />
+      <Label text="Webseite" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" text="generiere Password" GridPane.rowIndex="6" />
+      <TextArea prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="7" />
+      <TextArea prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <Button mnemonicParsing="false" text="verschlüssele Password" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Button fx:id="neuesFileErstellen" mnemonicParsing="false" onAction="#neuesFileErstellen" text="speichere Datensatzt" GridPane.rowIndex="8" />
+      <Button mnemonicParsing="false" text="lösche " GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <TextField fx:id="eingabeDatumUploadBenutzerdefiniert" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Label prefHeight="21.0" prefWidth="222.0" text="Datum upload benutzerdefiniert" GridPane.rowIndex="4" />
+      <Label text="Datum erstellung" GridPane.rowIndex="5" />
+      <Label fx:id="erstellungsDatum" prefHeight="21.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Label fx:id="labelINFO" prefHeight="21.0" prefWidth="440.0" text="Info" GridPane.columnSpan="2" />
    </children>
    <padding>
       <Insets left="50.0" top="70.0" />

@@ -5,56 +5,57 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Database.DbConnection;
+import POJO.PasswordFile;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class OverviewController {
-	
-    
-	
-	
+public class OverviewController implements Initializable{
 
     @FXML
-    private TableColumn<?, ?> passwortColumn;
-
-  
-
-    @FXML
-    private TableView<?> tableView;
-
-    
-
-   
-    @FXML
-    private TableColumn<?, ?> beschriftungColumn;
-
-    @FXML
-    private TableColumn<?, ?> datumUploadColumn;
-
-    @FXML
-    private TableColumn<?, ?> urlColumn;
+    private TableView<PasswordFile> tableView;
 
     
 
     @FXML
-    private TableColumn<?, ?> datumErstellungColumn;
+    private TableColumn<PasswordFile, String> passwortColumn;
+    
+    @FXML
+    private TableColumn<PasswordFile, String> beschriftungColumn;
+    
+    @FXML
+    private TableColumn<PasswordFile, String> urlColumn;
+ 
+    /*
 
     @FXML
-    private TableColumn<?, ?> sicherheitsniveauColumn;
+    private TableColumn<PasswordFile, String> datumUploadColumn;
 
-  
+    @FXML
+    private TableColumn<PasswordFile, String> urlColumn;
+
+    @FXML
+    private TableColumn<PasswordFile, String> datumErstellungColumn;
+
+    @FXML
+    private TableColumn<PasswordFile, String> sicherheitsniveauColumn;
+
+  */
 
   
 	
@@ -75,7 +76,7 @@ public class OverviewController {
     
 
 	@FXML
-    private Button neuErstellen; 
+	private Button neuErstellen; 
 	
 	@FXML
 	private AnchorPane mainPaneOverview;
@@ -112,6 +113,17 @@ public class OverviewController {
 
     @FXML
     private Separator separator;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -155,5 +167,36 @@ public class OverviewController {
 	
 	private void addFile() {
 		
+	}
+
+	
+	
+	
+	
+	private ObservableList<PasswordFile> dataList = FXCollections.observableArrayList();
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+		beschriftungColumn.setCellValueFactory(new PropertyValueFactory<>("EmpID"));       
+        urlColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));        
+        passwortColumn.setCellValueFactory(new PropertyValueFactory<>("email"));   
+        
+	}
+	
+	public void handleButtonDbRead()throws SQLException  {
+		tvUpdate();
+	}
+	
+	public void tvUpdate() throws SQLException {
+	dataList.clear();
+	dataList = DbConnection.GetPasswordFileFromDb();
+	tableView.setItems(dataList);
+	
+	}
+	public void passFileCreator() {
+		while() {
+			
+		}
 	}
 }

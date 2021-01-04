@@ -71,7 +71,7 @@ public class MainWindowController {
     @FXML
     private Button generatorButton;
 
-	private Labeled tfUsername;
+	private Label tfUsername;
     
 
 	@FXML
@@ -93,7 +93,19 @@ public class MainWindowController {
 	
 	@FXML
 	void handleButtonOpenAccountViewAction(ActionEvent event) {
-		setViewName("Account");
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Account.fxml"));
+		Parent root = null;
+		try {
+			root = (Parent) fxmlLoader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		borderPane.setCenter(root);
+		
+		AccountController accountcontroller = fxmlLoader.getController();
+		accountcontroller.GetActiveUser(tfUsername.getText());
 	}
 	
 	private void setViewName(String nameFxmlView) {

@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AccountController">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="700.0">
          <top>
@@ -17,6 +16,9 @@
                </font>
             </Label>
          </top>
+         <center>
+            <Label fx:id="displayedUsername" prefHeight="108.0" prefWidth="278.0" text="Label" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

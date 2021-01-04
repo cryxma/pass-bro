@@ -12,7 +12,7 @@
          <children>
             <Button fx:id="searchButton" layoutX="373.0" layoutY="94.0" mnemonicParsing="false" onAction="#searchFile" text="Suche File" />
             <TextField fx:id="searchTextField" layoutX="186.0" layoutY="94.0" text="wonach suchst du?" />
-            <Label layoutX="228.0" layoutY="21.0" text="Übersicht">
+            <Label layoutX="228.0" layoutY="21.0" prefHeight="70.0" prefWidth="212.0" text="Übersicht">
                <font>
                   <Font size="48.0" />
                </font>
