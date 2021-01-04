@@ -1,6 +1,6 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-/* RegistryController, ResetHwidController & ResetPasswordController - Alignment der Combobox auf center setzen */
+/* RegistryController, ResetHwidController, ResetPasswordController & AccountController - Alignment der Combobox auf center setzen */
 .combo-box.center-aligned>.list-cell {
     -fx-alignment: center;
 }

@@ -1,24 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AccountController">
+=======
+<AnchorPane prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AccountController">
+>>>>>>> refs/remotes/origin/master
    <children>
-      <BorderPane prefHeight="800.0" prefWidth="700.0">
-         <top>
-            <Label text="Account Verwaltung" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="150.0" prefWidth="700.0" style="-fx-background-color: grey;">
+         <children>
+            <Label layoutX="197.0" layoutY="49.0" text="Accountverwaltung">
                <font>
-                  <Font size="48.0" />
+                  <Font size="36.0" />
                </font>
             </Label>
+<<<<<<< HEAD
          </top>
          <center>
             <Label fx:id="displayedUsername" prefHeight="108.0" prefWidth="278.0" text="Label" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
+=======
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="150.0" prefHeight="250.0" prefWidth="700.0">
+         <children>
+            <Label layoutX="241.0" layoutY="14.0" text="Accountinformationen">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="65.0" text="Benutzername:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsername" layoutX="215.0" layoutY="65.0" text="Testname">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="100.0" text="Erstellungsdatum:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCreationDate" layoutX="215.0" layoutY="100.0" text="09-12-2020 15:21:243">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="135.0" text="Hardware-ID:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblHwid" layoutX="215.0" layoutY="135.0" prefWidth="388.0" text="326-3e6-37a-340-30a-31b-356-31f-33f-321-3fc-35e-3a">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="170.0" text="Sicherheitsfrage:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSecurityQuestion" layoutX="215.0" layoutY="170.0" prefWidth="388.0" text="Wie lautet der Mädchenname ihrere Mutter?">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="205.0" text="Sicherheitsantwort:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSecurityAnswer" layoutX="215.0" layoutY="205.0" prefWidth="388.0" text="Sicherheitsantwort1">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="btChangePassword" layoutY="400.0" prefHeight="200.0" prefWidth="700.0">
+         <children>
+            <AnchorPane prefHeight="3.0" prefWidth="700.0" style="-fx-background-color: grey;" />
+            <Label layoutX="270.0" layoutY="14.0" text="Passwort ändern">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="80.0" text="Neues Passwort:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pfNewPasswort" alignment="CENTER" layoutX="300.0" layoutY="80.0" prefHeight="25.0" prefWidth="365.0" promptText="Neues Passwort" />
+            <Label layoutX="30.0" layoutY="115.0" text="Bestätigung - Neues Passwort:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pfNewPasswortConfirmation" alignment="CENTER" layoutX="300.0" layoutY="115.0" prefHeight="25.0" prefWidth="365.0" promptText="Bestätigen Sie ihr neues Passwort" />
+            <Button layoutX="279.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonChangePasswordAction" style="-fx-background-color: #bce1cd; -fx-border-color: #000000; -fx-background-radius: 5; -fx-border-radius: 5;" text="Passwort ändern">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="600.0" prefHeight="200.0" prefWidth="700.0">
+         <children>
+            <Label layoutX="186.0" layoutY="3.0" text="Sicherheitsfrage/ Antwort ändern">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="60.0" text="Neue Sicherheitsfrage:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbNewSecurityQuestion" layoutX="300.0" layoutY="60.0" prefWidth="365.0" promptText="Sicherheitsfrage auswählen" styleClass="center-aligned" stylesheets="@application.css" />
+            <Label layoutX="30.0" layoutY="90.0" text="Neue Sicherheitsantwort:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfNewSecurityAnswer" alignment="CENTER" layoutX="300.0" layoutY="90.0" prefWidth="365.0" promptText="Neue Sicherheitsantwort" />
+            <Label layoutX="30.0" layoutY="120.0" text="Bestätigung Sicherheitsantwort:">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfNewSecurityAnswerConfirmation" alignment="CENTER" layoutX="300.0" layoutY="120.0" prefWidth="365.0" promptText="Neue Sicherheitsantwort" />
+            <AnchorPane prefHeight="3.0" prefWidth="700.0" style="-fx-background-color: grey;" />
+            <Button fx:id="btChangeSecurityInformations" layoutX="215.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonChangeSecurityDataAction" style="-fx-background-color: #bce1cd; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;" text="Sicherheitsfrage &amp; Antwort ändern">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+>>>>>>> refs/remotes/origin/master
    </children>
 </AnchorPane>

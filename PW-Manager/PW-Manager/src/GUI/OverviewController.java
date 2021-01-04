@@ -25,12 +25,30 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+<<<<<<< HEAD
 public class OverviewController implements Initializable{
 
+=======
+public class OverviewController {
+>>>>>>> refs/remotes/origin/master
     @FXML
+<<<<<<< HEAD
     private TableView<PasswordFile> tableView;
+=======
+    private TableColumn<?, ?> passwortColumn;
 
-    
+    @FXML
+    private TableView<?> tableView;
+   
+    @FXML
+    private TableColumn<?, ?> beschriftungColumn;
+
+    @FXML
+    private TableColumn<?, ?> datumUploadColumn;
+
+    @FXML
+    private TableColumn<?, ?> urlColumn;
+>>>>>>> refs/remotes/origin/master
 
     @FXML
     private TableColumn<PasswordFile, String> passwortColumn;
@@ -44,6 +62,7 @@ public class OverviewController implements Initializable{
     /*
 
     @FXML
+<<<<<<< HEAD
     private TableColumn<PasswordFile, String> datumUploadColumn;
 
     @FXML
@@ -59,21 +78,18 @@ public class OverviewController implements Initializable{
 
   
 	
+=======
+    private TableColumn<?, ?> sicherheitsniveauColumn;
+>>>>>>> refs/remotes/origin/master
 	
     @FXML
     private Button selectAllButton;
 
-
     @FXML
     private Button deleteButton;
 
-    
     @FXML
     private TextField searchTextField;
-    
-    
-    
-    
 
 	@FXML
 	private Button neuErstellen; 
@@ -114,6 +130,7 @@ public class OverviewController implements Initializable{
     @FXML
     private Separator separator;
     
+<<<<<<< HEAD
     
     
     
@@ -129,6 +146,8 @@ public class OverviewController implements Initializable{
     
     
     
+=======
+>>>>>>> refs/remotes/origin/master
     @FXML
     void selectAllRows(ActionEvent event) {
 

@@ -11,7 +11,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import Database.DbConnection;
 import POJO.User;
 import javafx.collections.FXCollections;
@@ -40,6 +39,7 @@ import javafx.stage.Stage;
 public class MainWindowController {	
 	
 	Stage stage;
+	String activeUser;
 	
     @FXML
     private AnchorPane mainPane;
@@ -92,6 +92,7 @@ public class MainWindowController {
 	}
 	
 	@FXML
+<<<<<<< HEAD
 	void handleButtonOpenAccountViewAction(ActionEvent event) {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Account.fxml"));
 		Parent root = null;
@@ -107,6 +108,10 @@ public class MainWindowController {
 		AccountController accountcontroller = fxmlLoader.getController();
 		//accountcontroller.getLabel().setText(tfUsername.getText());
 
+=======
+	void handleButtonOpenAccountViewAction(ActionEvent event) throws IOException {
+		setViewName("Account");
+>>>>>>> refs/remotes/origin/master
 	}
 	
 	private void setViewName(String nameFxmlView) {
@@ -119,9 +124,7 @@ public class MainWindowController {
 		}
 		borderPane.setCenter(pane);
 	}
-	
-	
-	
+
 	@FXML
 	void handleButtonLogOutAction(ActionEvent event) {
 		stage = (Stage) logoutButton.getScene().getWindow();
@@ -145,10 +148,15 @@ public class MainWindowController {
     }
 	
 	
+<<<<<<< HEAD
 	public void GetActiveUser(String text) {
 		// TODO Auto-generated method stub
 		
 		
+=======
+	public void GetActiveUser(String username) {
+		this.activeUser = username;
+>>>>>>> refs/remotes/origin/master
 	}
 	
 	public String passUsername() {

@@ -69,6 +69,9 @@ public class LoginController{
     @FXML
     void handleButtonRegistrierenAction(ActionEvent event) {
         try {
+        	// schliesst Stage Login
+        	closeLogin();
+        	
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registry.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -99,17 +102,16 @@ public class LoginController{
     		// schliesst Stage Login
 			closeLogin();
 			
-			
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 
-                // Communication between LoginController and OverviewController to get the active user
+                // Communication between LoginController and MainWindowController to get the active user
                 MainWindowController mainWindowController = fxmlLoader.getController();
                 mainWindowController.GetActiveUser(tfUsername.getText());
                 
                 Stage stage = new Stage();
-                stage.setTitle("Password Manager - Welcome");
+                stage.setTitle("Password Manager - Willkommen");
                 stage.setScene(new Scene(root));
                 stage.show();
             } catch (IOException ioe) {

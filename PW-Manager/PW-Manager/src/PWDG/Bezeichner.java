@@ -1,0 +1,8 @@
+package PWDG;
+
+public enum Bezeichner {
+	KLEINBUCHSTABEN, 
+	GROSSBUCHSTABEN,
+	NUMMERN,
+	SONDERZEICHEN
+}
