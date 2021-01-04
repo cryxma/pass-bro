@@ -105,7 +105,8 @@ public class MainWindowController {
 		borderPane.setCenter(root);
 		
 		AccountController accountcontroller = fxmlLoader.getController();
-		accountcontroller.GetActiveUser(tfUsername.getText());
+		//accountcontroller.getLabel().setText(tfUsername.getText());
+
 	}
 	
 	private void setViewName(String nameFxmlView) {
@@ -147,6 +148,19 @@ public class MainWindowController {
 	public void GetActiveUser(String text) {
 		// TODO Auto-generated method stub
 		
+		
 	}
+	
+	public String passUsername() {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+        try {
+			Parent root = (Parent) fxmlLoader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+		MainWindowController mainWindowController = fxmlLoader.getController();
+        return mainWindowController.GetActiveUser(tfUsername.getText());	}
 	
 }

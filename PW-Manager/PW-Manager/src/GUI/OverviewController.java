@@ -178,9 +178,9 @@ public class OverviewController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		beschriftungColumn.setCellValueFactory(new PropertyValueFactory<>("EmpID"));       
-        urlColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));        
-        passwortColumn.setCellValueFactory(new PropertyValueFactory<>("email"));   
+		beschriftungColumn.setCellValueFactory(new PropertyValueFactory<>("beschrieftung"));       
+        urlColumn.setCellValueFactory(new PropertyValueFactory<>("url"));        
+        passwortColumn.setCellValueFactory(new PropertyValueFactory<>("passwort"));   
         
 	}
 	
@@ -195,8 +195,6 @@ public class OverviewController implements Initializable{
 	
 	}
 	public void passFileCreator() {
-		while() {
-			
-		}
+	//while
 	}
 }
