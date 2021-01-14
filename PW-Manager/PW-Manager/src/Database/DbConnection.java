@@ -499,7 +499,7 @@ public class DbConnection {
 		ObservableList<PasswordFile> filePasswordListe = FXCollections.observableArrayList();
 		
 		// Datenbankverbindungseinstellungen definieren
-		final String dbUrl = "jdbc:mysql://localhost:3306/testfh?autoReconnect=true&serverTimezone=UTC";
+		final String dbUrl = "jdbc:mysql://localhost:3306/pwmanager?autoReconnect=true&serverTimezone=UTC";
 		final String dbUsername = "root";
 		final String dbPassword = "";
 		
@@ -519,7 +519,7 @@ public class DbConnection {
 			
 			// Ergebnisse auswerten und in ObservableList speichern
 			while (resultSet.next()) {
-				PasswordFile passFile = new PasswordFile(0, dbPassword, dbPassword, dbPassword);
+				PasswordFile passFile = new PasswordFile(0, "", "", "");
 				passFile.setId(resultSet.getInt("id"));
 				passFile.setWebsite(resultSet.getString("website"));
 				passFile.setBeschriftung(resultSet.getString("beschriftung"));
@@ -528,9 +528,10 @@ public class DbConnection {
 				filePasswordListe.add(passFile);
 			}
 			// Test
-			filePasswordListe.forEach((item) -> {
-				System.out.println(item.toString());
-			});
+			//filePasswordListe.forEach((item) -> {
+			//	System.out.println(item.toString());
+			//});
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
