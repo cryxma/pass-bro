@@ -257,6 +257,10 @@ public class OverviewController  implements Initializable{
     	
        
 	}
+	@FXML
+	void deleteSelectedRow(ActionEvent event) {
+		
+	}
 	
 }
 	
